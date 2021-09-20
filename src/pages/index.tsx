@@ -1,15 +1,21 @@
-import type { InferGetStaticPropsType } from 'next';
+import type { GetStaticProps } from 'next';
 
-interface ProductsProps {
-  products: InferGetStaticPropsType<typeof getStaticProps>;
-}
+import getAllProducts from '../framework/shopify/product/get-all-products';
+
+type ProductsProps = {
+  products: any[];
+};
 
 export default function Home({ products }: ProductsProps) {
-  return <div>{products}</div>;
+  return (
+    <div>
+      <h1>hi</h1>
+    </div>
+  );
 }
 
-export const getStaticProps = async () => {
-  const products = [1, 2, 3];
+export const getStaticProps: GetStaticProps = async () => {
+  const products = await getAllProducts();
 
   return {
     props: { products },
