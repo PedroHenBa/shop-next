@@ -1,44 +1,46 @@
-const FRAGMENTS_PRODUCT = `
-  fragment pageInfo on PageInfo{
+import { gql } from 'graphql-request';
+
+const FRAGMENTS_PRODUCT = gql`
+  fragment pageInfo on PageInfo {
     hasNextPage
     hasNextPage
   }
 
-  fragment edges on ProductEdge{
-    node{
+  fragment edges on ProductEdge {
+    node {
       ...node
     }
   }
 
-  fragment node on Product{
+  fragment node on Product {
     id
     title
     vendor
     handle
     description
-    priceRange{
-      minVariantPrice{
+    priceRange {
+      minVariantPrice {
         amount
         currencyCode
       }
     }
-    images(first: 1){
+    images(first: 1) {
       ...images
     }
   }
 
-  fragment images on ImageConnection{
-    pageInfo{
+  fragment images on ImageConnection {
+    pageInfo {
       ...pageInfo
     }
-    edges{
-      node{
+    edges {
+      node {
         ...nodeImage
       }
     }
   }
 
-  fragment nodeImage on Image{
+  fragment nodeImage on Image {
     originalSrc
     altText
     width
