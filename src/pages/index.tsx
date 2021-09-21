@@ -3,15 +3,11 @@ import type { GetStaticProps } from 'next';
 import getAllProducts from '../framework/shopify/product/get-all-products';
 
 type ProductsProps = {
-  products: any[];
+  products: any;
 };
 
 export default function Home({ products }: ProductsProps) {
-  return (
-    <div>
-      <h1>hi</h1>
-    </div>
-  );
+  return <div>{JSON.stringify(products)}</div>;
 }
 
 export const getStaticProps: GetStaticProps = async () => {
