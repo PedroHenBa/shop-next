@@ -1,7 +1,7 @@
-import type { GetStaticProps, GetStaticPropsResult } from 'next';
+import type { GetStaticProps } from 'next';
 
-import getAllProducts from '../framework/shopify/product/get-all-products';
-import { Product } from '../framework/shared/types/product';
+import getAllProducts from '@framework/product/get-all-products';
+import { Product } from '@shared/types/product';
 
 type ProductsProps = {
   products: Product[];

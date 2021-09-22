@@ -1,4 +1,4 @@
-import gqlClient from '../graphql/client';
+import { gqlClient } from '../graphql';
 
 type RequestGraphqlParams = {
   query: string;

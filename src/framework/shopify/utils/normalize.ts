@@ -1,5 +1,5 @@
 import { Product as ShopifyProduct, ImageEdge } from '../schema';
-import { Product, ProductImages } from '../../shared/types/product';
+import { Product, ProductImages } from '@shared/types/product';
 
 export function normalizeProductImages({ edges }: { edges: ImageEdge[] }): ProductImages[] {
   return edges.map(({ node: { originalSrc: url, ...rest } }) => ({
