@@ -1,7 +1,7 @@
 import { QUERY_GET_ALL_PRODUCTS } from '../graphql';
-import { requestGraphql } from '../utils';
+import { requestGraphql, normalizeProduct } from '../utils';
+
 import { ProductConnection } from '../schema';
-import { normalizeProduct } from '../utils';
 import { Product } from '@shared/types/product';
 
 type ReturnType = {

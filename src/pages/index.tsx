@@ -1,5 +1,4 @@
 import type { GetStaticProps } from 'next';
-
 import getAllProducts from '@framework/product/get-all-products';
 import { Product } from '@shared/types/product';
 
