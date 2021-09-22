@@ -1,16 +1,17 @@
-import type { GetStaticProps } from 'next';
+import type { GetStaticProps, GetStaticPropsResult } from 'next';
 
 import getAllProducts from '../framework/shopify/product/get-all-products';
+import { Product } from '../framework/shared/types/product';
 
 type ProductsProps = {
-  products: any;
+  products: Product[];
 };
 
 export default function Home({ products }: ProductsProps) {
   return <div>{JSON.stringify(products)}</div>;
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps<ProductsProps> = async () => {
   const products = await getAllProducts();
 
   return {
