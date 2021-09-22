@@ -1,16 +1,17 @@
 import { QUERY_GET_ALL_PRODUCTS } from '../graphql';
-import { requestGraphql, normalizeProduct } from '../utils';
+import { requestApi, normalizeProduct } from '../utils';
 
 import { ProductConnection } from '../schema';
 import { Product } from '@shared/types/product';
+import { ApiConfig } from '@shared/types/api';
 
 type ReturnType = {
   products: ProductConnection;
 };
 
-const getAllProducts = async (): Promise<Product[]> => {
+const getAllProducts = async (config: ApiConfig): Promise<Product[]> => {
   const query = QUERY_GET_ALL_PRODUCTS;
-  const data = await requestGraphql<ReturnType>({ query });
+  const data = await config.requestApi<ReturnType>({ query });
 
   const products =
     data.products.edges.map(({ node: product }) => {

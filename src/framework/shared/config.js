@@ -5,8 +5,21 @@ const merge = require('deepmerge');
 const fs = require('fs');
 const prettier = require('prettier');
 
+const ALLOWED_FW = ['shopify', 'shopify_local'];
+const FALLBACK_FW = 'shopify';
+
 function withFrameWorkConfig(defaultConfig = {}) {
-  const framework = defaultConfig?.framework?.name || 'shopify';
+  let framework = defaultConfig?.framework?.name || FALLBACK_FW;
+
+
+  if(!ALLOWED_FW.includes(framework)){
+    throw new Error(`the api ${framework} cannot be found`);
+  }
+
+  if(framework === 'shopify_local'){
+    framework = FALLBACK_FW;
+  }
+
 
   const frameworkNextConfig = require(path.join('../', framework, 'next.config'));
   const config = merge(defaultConfig, frameworkNextConfig);

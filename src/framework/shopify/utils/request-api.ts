@@ -1,10 +1,7 @@
 import { gqlClient } from '../graphql';
+import { RequestApiParams } from '@shared/types/api';
 
-type RequestGraphqlParams = {
-  query: string;
-};
-
-const requestGraphql = async <T>({ query }: RequestGraphqlParams): Promise<T> => {
+const requestApi = async <T>({ query }: RequestApiParams): Promise<T> => {
   try {
     const data = await gqlClient.request<T>(query);
     return data;
@@ -13,4 +10,4 @@ const requestGraphql = async <T>({ query }: RequestGraphqlParams): Promise<T> =>
   }
 };
 
-export default requestGraphql;
+export default requestApi;
