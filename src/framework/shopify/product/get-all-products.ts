@@ -1,5 +1,5 @@
 import { QUERY_GET_ALL_PRODUCTS } from '../graphql';
-import { requestApi, normalizeProduct } from '../utils';
+import { normalizeProduct } from '../utils';
 
 import { ProductConnection } from '../schema';
 import { Product } from '@shared/types/product';

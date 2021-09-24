@@ -2,6 +2,7 @@ import type { GetStaticProps } from 'next';
 import getAllProducts from '@framework/product/get-all-products';
 import { Product } from '@shared/types/product';
 import config from '@framework/api/config';
+import { Layout } from '@components/Layout';
 
 type ProductsProps = {
   products: Product[];
@@ -19,3 +20,5 @@ export const getStaticProps: GetStaticProps<ProductsProps> = async () => {
     revalidate: 4 * 60 * 60,
   };
 };
+
+Home.Layout = Layout;
