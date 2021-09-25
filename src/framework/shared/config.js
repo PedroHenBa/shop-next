@@ -27,8 +27,8 @@ function withFrameWorkConfig(defaultConfig = {}) {
   const tsPath = path.join(process.cwd(), 'tsconfig.json');
   const tsConfig = require(tsPath);
 
-  tsConfig.compilerOptions.paths['@framework'] = [`framework/${framework}`];
-  tsConfig.compilerOptions.paths['@framework/*'] = [`framework/${framework}/*`];
+  tsConfig.compilerOptions.paths['@framework'] = [`src/framework/${framework}`];
+  tsConfig.compilerOptions.paths['@framework/*'] = [`src/framework/${framework}/*`];
 
   fs.writeFileSync(tsPath, prettier.format(JSON.stringify(tsConfig), { parser: 'json' }));
 
