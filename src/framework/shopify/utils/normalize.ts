@@ -3,7 +3,7 @@ import { Product, ProductImages } from '@shared/types/product';
 
 export function normalizeProductImages({ edges }: { edges: ImageEdge[] }): ProductImages[] {
   return edges.map(({ node: { originalSrc: url = '', ...rest } }) => ({
-    url: `images/${url}`,
+    url: `/images/${url}`,
     ...rest,
   }));
 }

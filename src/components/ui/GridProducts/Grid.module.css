@@ -1,0 +1,33 @@
+
+.rootGrid {
+  @apply grid gap-0 grid-cols-1;
+
+  @screen lg{
+    @apply grid-cols-3 grid-rows-2;
+  }
+
+   & > * {
+     @apply row-span-1 ;
+     max-height: 85rem;
+
+      @screen lg{
+        height: inherit;
+      }
+    }
+}
+
+.layoutA{
+  & > *:nth-child(6n + 1),
+  & > *:nth-child(5n + 1){
+    @screen lg{
+      @apply col-span-2 row-span-2;
+    }
+  }
+}
+
+.layoutB{
+  color: blue;
+}
+
+
+

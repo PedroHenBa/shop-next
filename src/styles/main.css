@@ -3,6 +3,16 @@
 @tailwind utilities;
 
 
-.fit{
-  min-height: calc(100vh - 88px);
+ @layer components {
+   .fit {
+     min-height: calc(100vh - 88px);
+   }
+ }
+
+html{
+  font-size: 62.5%;
+}
+
+body{
+  font-size: 1.6rem;
 }

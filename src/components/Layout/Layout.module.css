@@ -1,7 +1,7 @@
 
 
 .root {
-  @apply bg-accents2 h-full mx-auto;
+  @apply h-full mx-auto bg-primary;
   max-width: 2460px;
   color: theme('colors.secondary');
 }
