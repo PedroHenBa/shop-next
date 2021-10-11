@@ -7,8 +7,7 @@
   }
 
    & > * {
-     @apply row-span-1 ;
-     max-height: 85rem;
+     @apply row-span-1 overflow-hidden;
 
       @screen lg{
         height: inherit;
@@ -18,9 +17,9 @@
 
 .layoutA{
   & > *:nth-child(6n + 1),
-  & > *:nth-child(5n + 1){
+  & > *:nth-child(6n + 5){
     @screen lg{
-      @apply col-span-2 row-span-2;
+      @apply col-span-2 row-span-2 max-h-full;
     }
   }
 }

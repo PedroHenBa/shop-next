@@ -1,4 +1,4 @@
-import { Product as ShopifyProduct, ImageEdge } from '../schema';
+import { Product as ShopifyProduct, ImageEdge, MoneyV2 } from '../schema';
 import { Product, ProductImages } from '@shared/types/product';
 
 export function normalizeProductImages({ edges }: { edges: ImageEdge[] }): ProductImages[] {
@@ -6,6 +6,10 @@ export function normalizeProductImages({ edges }: { edges: ImageEdge[] }): Produ
     url: `/images/${url}`,
     ...rest,
   }));
+}
+
+export function normalizePrice({ amount, currencyCode }: MoneyV2) {
+  return { value: +amount, currencyCode };
 }
 
 export function normalizeProduct(productNode: ShopifyProduct): Product {
@@ -16,6 +20,7 @@ export function normalizeProduct(productNode: ShopifyProduct): Product {
     vendor = '',
     description = '',
     images = { edges: [] },
+    priceRange,
     ...rest
   } = productNode;
 
@@ -27,6 +32,7 @@ export function normalizeProduct(productNode: ShopifyProduct): Product {
     path: `/${handle}`,
     slug: handle.replace(/^\/+|\/+$/g, ''),
     images: normalizeProductImages(images),
+    price: normalizePrice(priceRange.minVariantPrice),
     ...rest,
   };
 
