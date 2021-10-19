@@ -3,6 +3,9 @@ module.exports = {
   darkMode: false,
   theme: {
     extend: {
+      maxWidth: {
+        '8xl': '1920px',
+      },
       colors: {
         primary: '#ffffff',
         primary2: '#f1f3f5',
