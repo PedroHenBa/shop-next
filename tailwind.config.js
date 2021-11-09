@@ -34,9 +34,9 @@ module.exports = {
         accents9: '#212529',
       },
       textColor: {
-        textBase: '#000000',
-        textPrimary: '#000000',
-        textSecondary: 'white',
+        base: '#000000',
+        primary: '#000000',
+        secondary: 'white',
       },
     },
   },

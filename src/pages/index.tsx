@@ -5,7 +5,7 @@ import config from '@framework/api/config';
 import { Product } from '@shared/types/product';
 
 import { Layout } from '@components/Layout';
-import { ProductCard } from '@components/ProductCard';
+import { ProductCard } from '@components/product/ProductCard';
 import { GridProducts } from '@components/ui/GridProducts';
 import { Hero } from '@components/ui/Hero';
 import { Marquee } from '@components/ui/Marquee';

@@ -895,7 +895,7 @@ export type CheckoutLineItem = Node & {
   title: Scalars['String'];
   /** Unit price of the line item. */
   unitPrice?: Maybe<MoneyV2>;
-  /** Product variant of the line item. */
+  /** product variant of the line item. */
   variant?: Maybe<ProductVariant>;
 };
 
@@ -3896,7 +3896,7 @@ export type Product = Node &
     /** The description of the product, complete with HTML formatting. */
     descriptionHtml: Scalars['HTML'];
     /**
-     * A human-friendly unique string for the Product automatically generated from its title.
+     * A human-friendly unique string for the product automatically generated from its title.
      * They are used by the Liquid templating language to refer to objects.
      */
     handle: Scalars['String'];
@@ -3934,7 +3934,7 @@ export type Product = Node &
     tags: Array<Scalars['String']>;
     /** The product’s title. */
     title: Scalars['String'];
-    /** The total quantity of inventory in stock for this Product. */
+    /** The total quantity of inventory in stock for this product. */
     totalInventory?: Maybe<Scalars['Int']>;
     /**
      * The date and time when the product was last modified.
@@ -4102,7 +4102,7 @@ export type ProductConnection = {
   pageInfo: PageInfo;
 };
 
-/** An auto-generated type which holds one Product and a cursor during pagination. */
+/** An auto-generated type which holds one product and a cursor during pagination. */
 export type ProductEdge = {
   __typename?: 'ProductEdge';
   /** A cursor for use in pagination. */
@@ -4142,7 +4142,7 @@ export enum ProductMediaSortKeys {
 }
 
 /**
- * Product property names like "Size", "Color", and "Material" that the customers can select.
+ * product property names like "Size", "Color", and "Material" that the customers can select.
  * Variants are selected based on permutations of these options.
  * 255 characters limit each.
  */
@@ -4183,7 +4183,7 @@ export type ProductPriceRangeEdge = {
   node: ProductPriceRange;
 };
 
-/** The set of valid sort keys for the Product query. */
+/** The set of valid sort keys for the product query. */
 export enum ProductSortKeys {
   /** Sort by the `title` value. */
   Title = 'TITLE',
@@ -5079,7 +5079,10 @@ export type CustomerAccessTokenCreateMutation = { __typename?: 'Mutation' } & {
   customerAccessTokenCreate?: Maybe<
     { __typename?: 'CustomerAccessTokenCreatePayload' } & {
       customerAccessToken?: Maybe<
-        { __typename?: 'CustomerAccessToken' } & Pick<CustomerAccessToken, 'accessToken' | 'expiresAt'>
+        { __typename?: 'CustomerAccessToken' } & Pick<
+          CustomerAccessToken,
+          'accessToken' | 'expiresAt'
+        >
       >;
       customerUserErrors: Array<
         { __typename?: 'CustomerUserError' } & Pick<CustomerUserError, 'code' | 'field' | 'message'>
@@ -5113,7 +5116,10 @@ export type CustomerActivateByUrlMutation = { __typename?: 'Mutation' } & {
     { __typename?: 'CustomerActivateByUrlPayload' } & {
       customer?: Maybe<{ __typename?: 'Customer' } & Pick<Customer, 'id'>>;
       customerAccessToken?: Maybe<
-        { __typename?: 'CustomerAccessToken' } & Pick<CustomerAccessToken, 'accessToken' | 'expiresAt'>
+        { __typename?: 'CustomerAccessToken' } & Pick<
+          CustomerAccessToken,
+          'accessToken' | 'expiresAt'
+        >
       >;
       customerUserErrors: Array<
         { __typename?: 'CustomerUserError' } & Pick<CustomerUserError, 'code' | 'field' | 'message'>
@@ -5132,7 +5138,10 @@ export type CustomerActivateMutation = { __typename?: 'Mutation' } & {
     { __typename?: 'CustomerActivatePayload' } & {
       customer?: Maybe<{ __typename?: 'Customer' } & Pick<Customer, 'id'>>;
       customerAccessToken?: Maybe<
-        { __typename?: 'CustomerAccessToken' } & Pick<CustomerAccessToken, 'accessToken' | 'expiresAt'>
+        { __typename?: 'CustomerAccessToken' } & Pick<
+          CustomerAccessToken,
+          'accessToken' | 'expiresAt'
+        >
       >;
       customerUserErrors: Array<
         { __typename?: 'CustomerUserError' } & Pick<CustomerUserError, 'code' | 'field' | 'message'>
@@ -5225,10 +5234,16 @@ export type ProductConnectionFragment = { __typename?: 'ProductConnection' } & {
             minVariantPrice: { __typename?: 'MoneyV2' } & Pick<MoneyV2, 'amount' | 'currencyCode'>;
           };
           images: { __typename?: 'ImageConnection' } & {
-            pageInfo: { __typename?: 'PageInfo' } & Pick<PageInfo, 'hasNextPage' | 'hasPreviousPage'>;
+            pageInfo: { __typename?: 'PageInfo' } & Pick<
+              PageInfo,
+              'hasNextPage' | 'hasPreviousPage'
+            >;
             edges: Array<
               { __typename?: 'ImageEdge' } & {
-                node: { __typename?: 'Image' } & Pick<Image, 'originalSrc' | 'altText' | 'width' | 'height'>;
+                node: { __typename?: 'Image' } & Pick<
+                  Image,
+                  'originalSrc' | 'altText' | 'width' | 'height'
+                >;
               }
             >;
           };
@@ -5259,14 +5274,22 @@ export type CheckoutDetailsFragment = { __typename?: 'Checkout' } & Pick<
       pageInfo: { __typename?: 'PageInfo' } & Pick<PageInfo, 'hasNextPage' | 'hasPreviousPage'>;
       edges: Array<
         { __typename?: 'CheckoutLineItemEdge' } & {
-          node: { __typename?: 'CheckoutLineItem' } & Pick<CheckoutLineItem, 'id' | 'title' | 'quantity'> & {
+          node: { __typename?: 'CheckoutLineItem' } & Pick<
+            CheckoutLineItem,
+            'id' | 'title' | 'quantity'
+          > & {
               variant?: Maybe<
                 { __typename?: 'ProductVariant' } & Pick<ProductVariant, 'id' | 'sku' | 'title'> & {
                     image?: Maybe<
-                      { __typename?: 'Image' } & Pick<Image, 'originalSrc' | 'altText' | 'width' | 'height'>
+                      { __typename?: 'Image' } & Pick<
+                        Image,
+                        'originalSrc' | 'altText' | 'width' | 'height'
+                      >
                     >;
                     priceV2: { __typename?: 'MoneyV2' } & Pick<MoneyV2, 'amount' | 'currencyCode'>;
-                    compareAtPriceV2?: Maybe<{ __typename?: 'MoneyV2' } & Pick<MoneyV2, 'amount' | 'currencyCode'>>;
+                    compareAtPriceV2?: Maybe<
+                      { __typename?: 'MoneyV2' } & Pick<MoneyV2, 'amount' | 'currencyCode'>
+                    >;
                     product: { __typename?: 'Product' } & Pick<Product, 'handle'>;
                   }
               >;
@@ -5357,7 +5380,15 @@ export type GetCustomerQuery = { __typename?: 'QueryRoot' } & {
   customer?: Maybe<
     { __typename?: 'Customer' } & Pick<
       Customer,
-      'id' | 'firstName' | 'lastName' | 'displayName' | 'email' | 'phone' | 'tags' | 'acceptsMarketing' | 'createdAt'
+      | 'id'
+      | 'firstName'
+      | 'lastName'
+      | 'displayName'
+      | 'email'
+      | 'phone'
+      | 'tags'
+      | 'acceptsMarketing'
+      | 'createdAt'
     >
   >;
 };
@@ -5401,7 +5432,9 @@ export type GetProductBySlugQuery = { __typename?: 'QueryRoot' } & {
       Product,
       'id' | 'handle' | 'title' | 'productType' | 'vendor' | 'description' | 'descriptionHtml'
     > & {
-        options: Array<{ __typename?: 'ProductOption' } & Pick<ProductOption, 'id' | 'name' | 'values'>>;
+        options: Array<
+          { __typename?: 'ProductOption' } & Pick<ProductOption, 'id' | 'name' | 'values'>
+        >;
         priceRange: { __typename?: 'ProductPriceRange' } & {
           maxVariantPrice: { __typename?: 'MoneyV2' } & Pick<MoneyV2, 'amount' | 'currencyCode'>;
           minVariantPrice: { __typename?: 'MoneyV2' } & Pick<MoneyV2, 'amount' | 'currencyCode'>;
@@ -5410,10 +5443,17 @@ export type GetProductBySlugQuery = { __typename?: 'QueryRoot' } & {
           pageInfo: { __typename?: 'PageInfo' } & Pick<PageInfo, 'hasNextPage' | 'hasPreviousPage'>;
           edges: Array<
             { __typename?: 'ProductVariantEdge' } & {
-              node: { __typename?: 'ProductVariant' } & Pick<ProductVariant, 'id' | 'title' | 'sku'> & {
-                  selectedOptions: Array<{ __typename?: 'SelectedOption' } & Pick<SelectedOption, 'name' | 'value'>>;
+              node: { __typename?: 'ProductVariant' } & Pick<
+                ProductVariant,
+                'id' | 'title' | 'sku'
+              > & {
+                  selectedOptions: Array<
+                    { __typename?: 'SelectedOption' } & Pick<SelectedOption, 'name' | 'value'>
+                  >;
                   priceV2: { __typename?: 'MoneyV2' } & Pick<MoneyV2, 'amount' | 'currencyCode'>;
-                  compareAtPriceV2?: Maybe<{ __typename?: 'MoneyV2' } & Pick<MoneyV2, 'amount' | 'currencyCode'>>;
+                  compareAtPriceV2?: Maybe<
+                    { __typename?: 'MoneyV2' } & Pick<MoneyV2, 'amount' | 'currencyCode'>
+                  >;
                 };
             }
           >;
@@ -5422,7 +5462,10 @@ export type GetProductBySlugQuery = { __typename?: 'QueryRoot' } & {
           pageInfo: { __typename?: 'PageInfo' } & Pick<PageInfo, 'hasNextPage' | 'hasPreviousPage'>;
           edges: Array<
             { __typename?: 'ImageEdge' } & {
-              node: { __typename?: 'Image' } & Pick<Image, 'originalSrc' | 'altText' | 'width' | 'height'>;
+              node: { __typename?: 'Image' } & Pick<
+                Image,
+                'originalSrc' | 'altText' | 'width' | 'height'
+              >;
             }
           >;
         };
