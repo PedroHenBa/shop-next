@@ -1,5 +1,8 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
+
 import { Layout } from '@components/Layout';
+import getAllProductsPaths from '@framework/product/get-all-products-paths';
+import config from '@framework/api/config';
 
 export type ProductsPage = {
   product: { slug: string };
@@ -14,9 +17,10 @@ export default function ProductsPage({ product }: ProductsPage) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  const { products } = await getAllProductsPaths(config);
   return {
-    paths: [],
-    fallback: true,
+    paths: products.map((product) => ({ params: { slug: product.slug } })),
+    fallback: false,
   };
 };
 

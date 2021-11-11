@@ -1,5 +1,5 @@
 import { gql } from 'graphql-request';
-import FRAGMENTS from './fragments';
+import FRAGMENTS from '../fragments';
 
 export const QUERY_GET_ALL_PRODUCTS = gql`
   ${FRAGMENTS}
