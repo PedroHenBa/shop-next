@@ -2,16 +2,18 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 
 import { Layout } from '@components/Layout';
 import getAllProductsPaths from '@framework/product/get-all-products-paths';
+import getProduct from '@framework/product/get-product';
 import config from '@framework/api/config';
+import { Product } from '@shared/types/product';
 
 export type ProductsPage = {
-  product: { slug: string };
+  product: Product;
 };
 
 export default function ProductsPage({ product }: ProductsPage) {
   return (
     <div>
-      <h1>{product?.slug}</h1>
+      <p>{JSON.stringify(product, null, 2)}</p>
     </div>
   );
 }
@@ -25,9 +27,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const { product } = await getProduct(config, { slug: params?.slug });
+  console.log(product);
   return {
     props: {
-      product: { slug: params?.slug },
+      product,
     },
   };
 };
