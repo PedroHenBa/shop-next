@@ -33,5 +33,3 @@ export const NavBar = () => {
     </Container>
   );
 };
-
-export type NavBarProps = {};
