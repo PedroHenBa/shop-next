@@ -1,6 +1,8 @@
 import type { AppProps } from 'next/app';
 import { FC } from 'react';
+import 'keen-slider/keen-slider.min.css';
 import '../styles/main.css';
+
 import { UiContext } from '@components/ui/UiContext';
 
 const Noop: FC = ({ children }) => <>{children}</>;

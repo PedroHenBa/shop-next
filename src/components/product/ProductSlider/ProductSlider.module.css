@@ -20,14 +20,16 @@
 
 .leftControl {
   @apply bg-cover left-10;
+  background-image: url("public/images/cursor-left.png");
 
   @screen md {
-    @apply left-6;
+  @apply left-6;
   }
 }
 
 .rightControl {
   @apply bg-cover right-10;
+  background-image: url("public/images/cursor-right.png");
 
   @screen md {
     @apply right-6;
