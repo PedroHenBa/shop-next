@@ -10,6 +10,7 @@ import { ProductView } from '@components/product/ProductView';
 export type ProductsPage = {
   product: Product;
 };
+
 export default function ProductsPage({ product }: ProductsPage) {
   return <ProductView product={product} />;
 }
