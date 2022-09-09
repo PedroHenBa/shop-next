@@ -7,6 +7,8 @@ import { UiContext } from '@components/ui/UiContext';
 
 const Noop: FC = ({ children }) => <>{children}</>;
 
+//muito bom esse e-commerce
+
 function App({ Component, pageProps }: AppProps & { Component: { Layout: FC } }) {
   const Layout = Component.Layout ?? Noop;
 
